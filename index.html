@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Frontend Mentor | Base Apparel coming soon page</title>
+  </head>
+  <body>
+    <main>
+      <div class="logo">
+        <img src="./images/logo.svg" alt="logo" />
+      </div>
+
+      <section class="hero">
+        <div class="hero_img"></div>
+      </section>
+      <section class="coming_soon">
+        <h1><span>We're </span>coming soon</h1>
+        <p>
+          Hello fellow shoppers! We're currently building our new fashion store.
+          Add your email below to stay up-to-date with announcements and our
+          launch deals.
+        </p>
+        <form>
+          <input type="email" placeholder="Email Address" id="email" class="" />
+          <img
+            src="./images/icon-error.svg"
+            alt="error"
+            class="error_img hidden"
+          />
+          <button class="btn">
+            <img src="./images/icon-arrow.svg" alt=">" />
+          </button>
+
+          <div class="error_msg hidden">
+            <p>Please provide a valid email</p>
+          </div>
+        </form>
+      </section>
+    </main>
+    <script type="text/javascript">
+      const btn = document.querySelector(".btn");
+      const input = document.querySelector("#email");
+      const errMsg = document.querySelector(".error_msg");
+      const errImg = document.querySelector(".error_img");
+      btn.addEventListener("click", () => {
+        const valid = input.checkValidity();
+        errMsg.classList.toggle("hidden", valid);
+        errImg.classList.toggle("hidden", valid);
+        if (!valid) {
+          input.classList.add("error");
+        } else {
+          input.classList.toggle("error", valid);
+        }
+      });
+    </script>
+  </body>
+</html>
